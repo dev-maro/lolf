@@ -7,30 +7,30 @@ from pyrogram import filters
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID"))
-API_HASH = getenv("API_HASH")
+API_ID = int(getenv("API_ID", "13981526"))
+API_HASH = getenv("API_HASH", "5482e90e58d4126b176fcc19d8a33bb8")
 
-BOT_TOKEN = getenv("BOT_TOKEN")
+BOT_TOKEN = getenv("BOT_TOKEN", "5545396214:AAHISiGWGph_8Tkp5kA7UZEMDggLsr5tPnU")
 
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID"))
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "ᴀɴᴏɴ ダ ᴍᴜsɪᴄ")
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://ffb:ffb@cluster0.ppnwic3.mongodb.net/?retryWrites=true&w=majority")
+LOG_GROUP_ID = int(getenv("OWNER_ID"))
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "𝙏َِ𝙍َِ𝘼َِ𝘾َِ𝙆 َِ𝘼َِ𝘽َِ𝙊 َِ𝙔َِ𝙐َِ𝙎َِ𝙄َِ𝙁")
 
-OWNER_ID = list(map(int, getenv("OWNER_ID", "1356469075").split()))
+OWNER_ID = list(map(int, getenv("OWNER_ID", "5768130077").split()))
 
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
 
-UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://github.com/AnonymousX1025/AnonXMusic")
+UPSTREAM_REPO = getenv("UPSTREAM_REPO", "https://t.me/GG7GW")
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv("GIT_TOKEN", None)
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/FallenAssociation")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/DevilsHeavenMF")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/GG7GW")
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/DD_BT")
 
-SUPPORT_HEHE = SUPPORT_GROUP.split("me/")[1]
+SUPPORT_HEHE = SUPPORT_GROUP.split("me/GG7GW")[1]
 
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "180"))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", "18077"))
 SONG_DOWNLOAD_DURATION = int(getenv("SONG_DOWNLOAD_DURATION_LIMIT", "180"))
 
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", "False")
@@ -58,7 +58,7 @@ TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "104857600"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "1073741824"))
 # https://www.gbmb.org/mb-to-bytes
 
-STRING1 = getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", "AQCvo2XQ4Usy0n2nnfvnwrXj5KV7G7_L1OF0yilYRMfw20C-8zE9OMCOCi-BegGLuNircG7jCMPJ5gZiZsJtOdRU9qHmcy1H4R5UefpHJepVfcomnoMa8es5OAy8L_CnLvl5yDtEvc5v8mu4JAU3gvjwA8R3myQ6K8O3Zx7H95GZPSHFNnBH_lA0GY6Bw6ZWhmDryVnjhvq51G97KRXxoayIoV8R58NZWiz4hE34Hy1ukmdCCUT_NXYMd7XihLXz6bnMXaQ_IPuDELQnyhatmCEuWMQummN9B8kEnXjYHyZtj0I2WFVeJti-F56ZbXl7b1zH-MR_JNLfwqusa7rIFL2vAAAAAVgv1bMA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
