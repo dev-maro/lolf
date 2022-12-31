@@ -538,7 +538,7 @@ async def play_commnd(
     plist_type = None
     spotify = None
     user_id = None
-    user_name = None
+    user_name = message.from_user.mention
     audio_telegram = (
         (
             message.reply_to_message.audio
