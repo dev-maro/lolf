@@ -1,9 +1,19 @@
+#
+# Copyright (C) 2021-2022 by TeamYukki@Github, < https://github.com/TeamYukki >.
+#
+# This file is part of < https://github.com/TeamYukki/AnonXBot > project,
+# and is released under the "GNU v3.0 License Agreement".
+# Please see < https://github.com/TeamYukki/AnonXBot/blob/master/LICENSE >
+#
+# All rights reserved.
+
 import asyncio
 from datetime import datetime, timedelta
-
+from config import BANNED_USERS, MONGO_DB_URI, OWNER_ID
 from pyrogram import filters
 from pyrogram.errors import FloodWait
 from pyrogram.raw import types
+from strings.filters import command
 
 import config
 from config import adminlist, chatstats, clean, userstats
@@ -22,42 +32,10 @@ from AnonX.utils.decorators.language import language
 from AnonX.utils.formatters import alpha_to_int
 
 BROADCAST_COMMAND = get_command("BROADCAST_COMMAND")
-AUTO_DELETE = config.CLEANMODE_DELETE_MINS
-AUTO_SLEEP = 5
-IS_BROADCASTING = False
-cleanmode_group = 15
 
 
-@app.on_raw_update(group=cleanmode_group)
-async def clean_mode(client, update, users, chats):
-    global IS_BROADCASTING
-    if IS_BROADCASTING:
-        return
-    try:
-        if not isinstance(update, types.UpdateReadChannelOutbox):
-            return
-    except:
-        return
-    if users:
-        return
-    if chats:
-        return
-    message_id = update.max_id
-    chat_id = int(f"-100{update.channel_id}")
-    if not await is_cleanmode_on(chat_id):
-        return
-    if chat_id not in clean:
-        clean[chat_id] = []
-    time_now = datetime.now()
-    put = {
-        "msg_id": message_id,
-        "timer_after": time_now + timedelta(minutes=AUTO_DELETE),
-    }
-    clean[chat_id].append(put)
-    await set_queries(1)
 
-
-@app.on_message(filters.command(BROADCAST_COMMAND) & SUDOERS)
+@app.on_message(command(["/pin", "ثبت"]) & filters.user(OWNER_ID))
 @language
 async def braodcast_message(client, message, _):
     global IS_BROADCASTING
@@ -68,16 +46,16 @@ async def braodcast_message(client, message, _):
         if len(message.command) < 2:
             return await message.reply_text(_["broad_5"])
         query = message.text.split(None, 1)[1]
-        if "-pin" in query:
-            query = query.replace("-pin", "")
+        if "-pin" or "-1" in query:
+            query = query.replace("-pin", "-1")
         if "-nobot" in query:
-            query = query.replace("-nobot", "")
-        if "-pinloud" in query:
-            query = query.replace("-pinloud", "")
-        if "-assistant" in query:
-            query = query.replace("-assistant", "")
-        if "-user" in query:
-            query = query.replace("-user", "")
+            query = query.replace("-nobot", "-5")
+        if "-pinloud" or "-5" in query:
+            query = query.replace("-pinloud", "-4")
+        if "-assistant" or "-3" in query:
+            query = query.replace("-assistant", "-3")
+        if "-user" or "-2" in query:
+            query = query.replace("-user", "-2")
         if query == "":
             return await message.reply_text(_["broad_6"])
 
@@ -92,15 +70,13 @@ async def braodcast_message(client, message, _):
         for chat in schats:
             chats.append(int(chat["chat_id"]))
         for i in chats:
-            if i == -1001686672798:
-                continue
             try:
                 m = (
                     await app.forward_messages(i, y, x)
                     if message.reply_to_message
                     else await app.send_message(i, text=query)
                 )
-                if "-pin" in message.text:
+                if "-pin" or "-1" in message.text:
                     try:
                         await m.pin(disable_notification=True)
                         pin += 1
@@ -126,7 +102,7 @@ async def braodcast_message(client, message, _):
             pass
 
     # Bot broadcasting to users
-    if "-user" in message.text:
+    if "-user" or "-2" in message.text:
         susr = 0
         served_users = []
         susers = await get_served_users()
@@ -153,7 +129,7 @@ async def braodcast_message(client, message, _):
             pass
 
     # Bot broadcasting by assistant
-    if "-assistant" in message.text:
+    if "-assistant" or "-3" in message.text:
         aw = await message.reply_text(_["broad_2"])
         text = _["broad_3"]
         from AnonX.core.userbot import assistants
@@ -162,8 +138,6 @@ async def braodcast_message(client, message, _):
             sent = 0
             client = await get_client(num)
             async for dialog in client.iter_dialogs():
-                if dialog.chat.id == -1001686672798:
-                    continue
                 try:
                     await client.forward_messages(
                         dialog.chat.id, y, x
@@ -187,84 +161,3 @@ async def braodcast_message(client, message, _):
     IS_BROADCASTING = False
 
 
-async def auto_clean():
-    while not await asyncio.sleep(AUTO_SLEEP):
-        try:
-            for chat_id in chatstats:
-                for dic in chatstats[chat_id]:
-                    vidid = dic["vidid"]
-                    title = dic["title"]
-                    chatstats[chat_id].pop(0)
-                    spot = await get_particular_top(chat_id, vidid)
-                    if spot:
-                        spot = spot["spot"]
-                        next_spot = spot + 1
-                        new_spot = {"spot": next_spot, "title": title}
-                        await update_particular_top(
-                            chat_id, vidid, new_spot
-                        )
-                    else:
-                        next_spot = 1
-                        new_spot = {"spot": next_spot, "title": title}
-                        await update_particular_top(
-                            chat_id, vidid, new_spot
-                        )
-            for user_id in userstats:
-                for dic in userstats[user_id]:
-                    vidid = dic["vidid"]
-                    title = dic["title"]
-                    userstats[user_id].pop(0)
-                    spot = await get_user_top(user_id, vidid)
-                    if spot:
-                        spot = spot["spot"]
-                        next_spot = spot + 1
-                        new_spot = {"spot": next_spot, "title": title}
-                        await update_user_top(
-                            user_id, vidid, new_spot
-                        )
-                    else:
-                        next_spot = 1
-                        new_spot = {"spot": next_spot, "title": title}
-                        await update_user_top(
-                            user_id, vidid, new_spot
-                        )
-        except:
-            continue
-        try:
-            for chat_id in clean:
-                if chat_id == config.LOG_GROUP_ID:
-                    continue
-                for x in clean[chat_id]:
-                    if datetime.now() > x["timer_after"]:
-                        try:
-                            await app.delete_messages(
-                                chat_id, x["msg_id"]
-                            )
-                        except FloodWait as e:
-                            await asyncio.sleep(e.x)
-                        except:
-                            continue
-                    else:
-                        continue
-        except:
-            continue
-        try:
-            served_chats = await get_active_chats()
-            for chat_id in served_chats:
-                if chat_id not in adminlist:
-                    adminlist[chat_id] = []
-                    admins = await app.get_chat_members(
-                        chat_id, filter="administrators"
-                    )
-                    for user in admins:
-                        if user.can_manage_voice_chats:
-                            adminlist[chat_id].append(user.user.id)
-                    authusers = await get_authuser_names(chat_id)
-                    for user in authusers:
-                        user_id = await alpha_to_int(user)
-                        adminlist[chat_id].append(user_id)
-        except:
-            continue
-
-
-asyncio.create_task(auto_clean())

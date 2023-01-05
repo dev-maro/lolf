@@ -4,6 +4,7 @@ from pyrogram.types import Message
 from config import BANNED_USERS
 from strings import get_command
 from AnonX import app
+from strings.filters import command
 from AnonX.core.call import Anon
 from AnonX.utils.database import is_music_playing, music_off
 from AnonX.utils.decorators import AdminRightsCheck
@@ -14,7 +15,7 @@ PAUSE_COMMAND = get_command("PAUSE_COMMAND")
 
 
 @app.on_message(
-    filters.command(PAUSE_COMMAND)
+    command(PAUSE_COMMAND)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS

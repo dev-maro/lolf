@@ -8,13 +8,14 @@ from AnonX.core.call import Anon
 from AnonX.utils.database import is_music_playing, music_on
 from AnonX.utils.decorators import AdminRightsCheck
 from AnonX.utils.inline.play import close_keyboard
+from strings.filters import command
 
 # Commands
 RESUME_COMMAND = get_command("RESUME_COMMAND")
 
 
 @app.on_message(
-    filters.command(RESUME_COMMAND)
+    command(RESUME_COMMAND)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS

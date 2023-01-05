@@ -14,13 +14,14 @@ from AnonX.utils.inline.play import (stream_markup,
                                           close_keyboard)
 from AnonX.utils.stream.autoclear import auto_clean
 from AnonX.utils.thumbnails import gen_thumb
+from strings.filters import command
 
 # Commands
 SKIP_COMMAND = get_command("SKIP_COMMAND")
 
 
 @app.on_message(
-    filters.command(SKIP_COMMAND)
+    command(SKIP_COMMAND)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS

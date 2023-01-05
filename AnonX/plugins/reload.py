@@ -2,8 +2,8 @@ import asyncio
 
 from pyrogram import filters
 from pyrogram.types import CallbackQuery, Message
-
-from config import BANNED_USERS, MUSIC_BOT_NAME, adminlist, lyrical
+from strings.filters import command
+from config import BANNED_USERS, BOT_ID, adminlist, lyrical
 from strings import get_command
 from AnonX import app
 from AnonX.core.call import Anon
@@ -12,6 +12,7 @@ from AnonX.utils.database import get_authuser_names, get_cmode
 from AnonX.utils.decorators import (ActualAdminCB, AdminActual,
                                          language)
 from AnonX.utils.formatters import alpha_to_int
+from strings.filters import command
 
 ### Multi-Lang Commands
 RELOAD_COMMAND = get_command("RELOAD_COMMAND")
@@ -19,8 +20,7 @@ RESTART_COMMAND = get_command("RESTART_COMMAND")
 
 
 @app.on_message(
-    filters.command(RELOAD_COMMAND)
-    & filters.group
+    command(RELOAD_COMMAND)
     & ~filters.edited
     & ~BANNED_USERS
 )
@@ -47,15 +47,17 @@ async def reload_admin_cache(client, message: Message, _):
 
 
 @app.on_message(
-    filters.command(RESTART_COMMAND)
+    command(RESTART_COMMAND)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
 )
 @AdminActual
 async def restartbot(client, message: Message, _):
+    user = await client.get_chat(BOT_ID)
+    first_name = user.first_name
     mystic = await message.reply_text(
-        f"ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ ʀᴇʙᴏᴏᴛɪɴɢ {MUSIC_BOT_NAME} ғᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ."
+        f"ᴩʟᴇᴀsᴇ ᴡᴀɪᴛ ʀᴇʙᴏᴏᴛɪɴɢ {first_name} ғᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ."
     )
     await asyncio.sleep(1)
     try:
@@ -75,7 +77,7 @@ async def restartbot(client, message: Message, _):
         except:
             pass
     return await mystic.edit_text(
-        f"sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇʙᴏᴏᴛᴇᴅ {MUSIC_BOT_NAME} ғᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ, ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ..."
+        f"sᴜᴄᴄᴇssғᴜʟʟʏ ʀᴇʙᴏᴏᴛᴇᴅ {first_name} ғᴏʀ ʏᴏᴜʀ ᴄʜᴀᴛ, ɴᴏᴡ ʏᴏᴜ ᴄᴀɴ sᴛᴀʀᴛ ᴩʟᴀʏɪɴɢ ᴀɢᴀɪɴ..."
     )
 
 

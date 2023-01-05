@@ -1,7 +1,7 @@
 import random
 import string
 from ast import ExceptHandler
-
+from AnonX.utils.logger import play_logs
 from pyrogram import filters
 from pyrogram.types import (InlineKeyboardMarkup, InlineKeyboardButton, InputMediaPhoto,
                             Message)
@@ -12,6 +12,7 @@ from config import BANNED_USERS, lyrical
 from strings import get_command
 from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram,
                         YouTube, app)
+from strings.filters import command                        
 from AnonX.core.call import Anon
 from AnonX.utils import seconds_to_min, time_to_seconds
 from AnonX.utils.channelplay import get_channeplayCB
@@ -32,7 +33,7 @@ PLAY_COMMAND = get_command("PLAY_COMMAND")
 
 
 @app.on_message(
-    filters.command(PLAY_COMMAND)
+    command(PLAY_COMMAND)
     & filters.group
     & ~filters.edited
     & ~BANNED_USERS
@@ -51,12 +52,12 @@ async def play_commnd(
 ):
     if not await is_served_user(message.from_user.id):
         await message.reply_text(
-            text="ᴇʀʀᴏʀ, ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀ ᴠᴇʀɪғɪᴇᴅ ᴜsᴇʀ.\nᴘʟᴇᴀsᴇ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ᴠᴇʀɪғʏ ʏᴏᴜʀsᴇʟғ.",
+            text="للتحقق من انك انسان\nقم بالضغط علي اضغط هنا 💕",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="ᴄʟɪᴄᴋ ʜᴇʀᴇ ᴛᴏ ᴠᴇʀɪғʏ",
+                            text="اضغط هنا 💕",
                             url=f"https://t.me/{app.username}?start=verify",
                         )
                     ]
@@ -513,7 +514,7 @@ async def play_commnd(
                 )
 
 @app.on_message(
-    filters.command(PLAY_COMMAND)
+    command(["/play", "/vplay", "play", "vplay", "شغل", "تشغيل", "فديو", "فيديو"])
     & filters.channel
     & ~filters.edited
     & ~BANNED_USERS
