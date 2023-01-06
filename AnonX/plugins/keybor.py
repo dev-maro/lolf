@@ -9,12 +9,27 @@ from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram,
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
                         
 @app.on_message(
-    command(["/command_sudo"])
+    command(["/command_sudo", "/command"])
     & filters.private
     & ~filters.edited
 )
 async def khalid(client: Client, message: Message):
     if message.from_user.id in SUDOERS:
+       await message.reply_text(
+                "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
+                reply_markup=ReplyKeyboardMarkup(
+                    [
+                        ["الاوامر"],
+                        ["اختبار الحساب المساعد","مغادرة الحساب المساعد من المجموعات"],
+                        ["تنصيب php البوت"],
+                        ["معلومات السيرفر ","بينج السيرفر","قياس سرعة السيرفر"],
+                        ["مدة التشغيل","اعادة تشغيل البوت"],
+                        ["طريقة الاذاعة","الغاء التوقف"],
+                    ],
+                    resize_keyboard=True
+                )
+            )
+    else:
        await message.reply_text(
                 "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
                 reply_markup=ReplyKeyboardMarkup(
@@ -28,4 +43,4 @@ async def khalid(client: Client, message: Message):
                     ],
                     resize_keyboard=True
                 )
-            )
+            )            
