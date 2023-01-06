@@ -4,7 +4,9 @@ from strings import get_command
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from AnonX.misc import SUDOERS
-
+from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram,
+                        YouTube, app)
+                        
 @app.on_message(
     command(["/command_sudo"])
     & filters.private
