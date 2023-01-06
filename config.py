@@ -7,10 +7,10 @@ from pyrogram import filters
 
 load_dotenv()
 
-API_ID = int(getenv("API_ID", "13981526"))
-API_HASH = getenv("API_HASH", "5482e90e58d4126b176fcc19d8a33bb8")
+API_ID = int(getenv("API_ID", "18129304"))
+API_HASH = getenv("API_HASH", "1daf5fc9e4e649751ea3ebcd919efd55")
 
-BOT_TOKEN = getenv("BOT_TOKEN", "5545396214:AAFp_MGqy7C1Q7N7QgkoUPjDnvSOxp3sGms")
+BOT_TOKEN = getenv("BOT_TOKEN", "5545396214:AAEuy9mlhkDB8ovTORMrDwyLv3_ehIhrFjU")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://ffb:ffb@cluster0.ppnwic3.mongodb.net/?retryWrites=true&w=majority")
 LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "5768130077"))
@@ -58,7 +58,7 @@ TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "104857600"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "1073741824"))
 # https://www.gbmb.org/mb-to-bytes
 
-STRING1 = getenv("STRING_SESSION", "AQAg75lpZJ8J7GdrAP8etPuDIIlXfrTzrddAjnSDB8sQbHmi0t8mu8nIBMw_QJZwjPj6uM91O5xMkzOTUpnMt5Qz5QbvJjQ2rCldUCAtv4Es65APlUZE6n4pr8RTNmnncMPYjTDyaoc6BpTn5dEkUFmfdZSRXp2ulaUzBYia2UIIfpzdBjCzA6KhP-6fh_QcDhf4Rzy41Vwo-WqI44RsGK72vLV5LQbqXp9FS4589Se1vyUhJMuWfcCj9u6EnlE-0SWh4rGchxxjclLiCx0OCgkM7x0wmuMNXLDlZirxMRLPa_SWZ7Ik1H1zIcmRM97WsGr8ZyLIhP47PkDXt9UwWTORAAAAAViiIv0A")
+STRING1 = getenv("STRING_SESSION", "AQAdVssAQx5o7MvOLy6g2LpgLZ2BDJnQBu_TgqszmectbBDrBmBpG-0Aqkh5xvLU8XouK3JQInV6wAxX_yRO7MRgtwp-U71Jgoi1jvdjO9FmQ3-y-IgNgArUOy0cg0qivQ0FzWIpx51EGIFuSz5BaIdiSfDTisjmSo_qgcNZGkfMgyuDB-VIE1QPa2iQCPTyY_T41aP7Y9mrUEGu2UcvGlr5lubj0M5IhyVc61OnabxrkaqvB9mnjdNuAtXwM8uvAU8-BgwCTf2HA6lXbLw9CXoGVE4taN1LRETBPDxPo-ptYt5Ese-gAM1p8d-PinYq1F7lAg8SPxXes6LxJPQ6SQQfAAAAAViiIv0A")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
