@@ -6,6 +6,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from AnonX.misc import SUDOERS
 from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram,
                         YouTube, app)
+from pyrogram.types import (InlineKeyboardButton,CallbackQuery,                        
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
                         
 @app.on_message(
@@ -19,12 +20,9 @@ async def khalid(client: Client, message: Message):
                 "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
                 reply_markup=ReplyKeyboardMarkup(
                     [
-                        ["الاوامر"],
-                        ["اختبار الحساب المساعد","مغادرة الحساب المساعد من المجموعات"],
-                        ["تنصيب php البوت"],
-                        ["معلومات السيرفر ","بينج السيرفر","قياس سرعة السيرفر"],
-                        ["مدة التشغيل","اعادة تشغيل البوت"],
-                        ["طريقة الاذاعة","الغاء التوقف"],
+                        ["سورس"],
+                        ["الاوامر","الاحصائيات"],
+                        ["المحظورين عام","مطور البوت"],
                     ],
                     resize_keyboard=True
                 )
@@ -34,7 +32,7 @@ async def khalid(client: Client, message: Message):
                 "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
                 reply_markup=ReplyKeyboardMarkup(
                     [
-                        ["الاحصائيات"],
+                        ["الاوامر"],
                         ["اختبار الحساب المساعد","مغادرة الحساب المساعد من المجموعات"],
                         ["تنصيب php البوت"],
                         ["معلومات السيرفر ","بينج السيرفر","قياس سرعة السيرفر"],
@@ -43,4 +41,17 @@ async def khalid(client: Client, message: Message):
                     ],
                     resize_keyboard=True
                 )
-            )            
+            )     
+
+
+@app.on_callback_query(filters.regex("الاوامر"))
+async def back1(_, query: CallbackQuery):
+   await query.edit_message_text(
+       f"""لاوامر الجروب ⓵ \n لاوامر القناه ⓶\n لاوامر البوت ⓷""",
+                reply_markup=ReplyKeyboardMarkup(
+                    [
+                        ["سورس"],
+                    ],
+                    resize_keyboard=True
+                )
+            )     
