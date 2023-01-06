@@ -30,7 +30,7 @@ async def khalid(client: Client, message: Message):
             )
     else:
        await message.reply_text(
-                "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
+                "اهلا عزيزي العضو\nاليك لوحة التحكم الخاصة بالبوت",
                 reply_markup=ReplyKeyboardMarkup(
                     [
                         ["الاوامر"],
@@ -45,14 +45,33 @@ async def khalid(client: Client, message: Message):
             )     
 
 
-@app.on_callback_query(filters.regex("الاوامر"))
-async def back1(_, query: CallbackQuery):
-   await query.edit_message_text(
-       f"""لاوامر الجروب ⓵ \n لاوامر القناه ⓶\n لاوامر البوت ⓷""",
+@app.on_message(
+    command(["الاوامر"])
+    & filters.private
+    & ~filters.edited
+)
+async def khalid(client: Client, message: Message):
+    if message.from_user.id in SUDOERS:
+       await message.reply_text(
+                "اليك اوامر البوت عزيزي المطور",
                 reply_markup=ReplyKeyboardMarkup(
                     [
-                        ["سورس"],
+                        ["اوامر 1","اوامر 2"],
+                        ["اوامر 3","اوامر 4"],
+                        ["اوامر 5","اوامر 6"],
                     ],
                     resize_keyboard=True
                 )
-            )     
+            )
+    else:
+       await message.reply_text(
+                "اليك اوامر البوت عزيزي العضو",
+                reply_markup=ReplyKeyboardMarkup(
+                    [
+                        ["اوامر 1","اوامر 2"],
+                        ["اوامر 3","اوامر 4"],
+                        ["اوامر 5"],
+                    ],
+                    resize_keyboard=True
+                )
+            )                 
