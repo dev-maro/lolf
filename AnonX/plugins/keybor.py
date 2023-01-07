@@ -1,6 +1,7 @@
 import asyncio
 from pyrogram import Client, filters
 from strings import get_command
+from AnonX.utils.decorators import AdminRightsCheck
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from AnonX.misc import SUDOERS
@@ -72,4 +73,24 @@ async def khalid(client: Client, message: Message):
                     ],
                     resize_keyboard=True
                 )
-            )                 
+            )  
+               
+@app.on_message(
+    command(["/command_sudo", "/command", "♕رجوع♕"])
+    & filters.private
+    & ~filters.edited
+)
+@AdminRightsCheck
+async def khalid(client: Client, message: Message):
+    if message.from_user.id in SUDOERS:
+       await message.reply_text(
+                "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
+                reply_markup=ReplyKeyboardMarkup(
+                    [
+                        ["سورس"],
+                        ["الاوامر","الاحصائيات"],
+                        ["المحظورين عام","مطور البوت"],
+                    ],
+                    resize_keyboard=True
+                )
+            )
