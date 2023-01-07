@@ -80,7 +80,6 @@ async def khalid(client: Client, message: Message):
     & filters.group
     & ~filters.edited
 )
-@AdminRightsCheck
 async def khalid(client: Client, message: Message):
        await message.reply_text(
                 "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
