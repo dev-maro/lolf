@@ -1,4 +1,6 @@
 import asyncio
+import random
+from pyrogram.types import InlineKeyboardButton
 from pyrogram import Client, filters
 from strings import get_command
 from strings.filters import command
