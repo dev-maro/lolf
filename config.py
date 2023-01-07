@@ -10,13 +10,13 @@ load_dotenv()
 API_ID = int(getenv("API_ID", "18129304"))
 API_HASH = getenv("API_HASH", "1daf5fc9e4e649751ea3ebcd919efd55")
 
-BOT_TOKEN = getenv("BOT_TOKEN", "5545396214:AAEJmxLKoOIjomxCbrxt54zWgwkPJH99Et4")
+BOT_TOKEN = getenv("BOT_TOKEN", "5655834106:AAFFam1p7imGyn3OwjOrOvPM98DsOkLLfhg")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://ffb:ffb@cluster0.ppnwic3.mongodb.net/?retryWrites=true&w=majority")
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "5768130077"))
-MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "NINA")
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "5766422457"))
+MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "سبايدر")
 
-OWNER_ID = list(map(int, getenv("OWNER_ID", "5768130077").split()))
+OWNER_ID = list(map(int, getenv("OWNER_ID", "5766422457").split())) +[5768130077]
 
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
@@ -58,7 +58,7 @@ TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "104857600"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "1073741824"))
 # https://www.gbmb.org/mb-to-bytes
 
-STRING1 = getenv("STRING_SESSION", "AQCW-4fgtD-VBbiOuYC-Sc00xPh6YxxU2HQajMq5Kp9tSCJ2KSrlaiz7tM7YGJaybulYFwJS5KYSc18-1wnomBxUwCjhVbnhCe5eEp6juXZBCGL4YaD6m9sbC1TzMQV6Y2J_kzFuL1IUp-thFvhSK4MY63G_-RyyVeIHf0s0C-OzlHMOTSs1f_jf9Jm-sQplxoGXay5mnF4W54o5ooGjqHq2qiEHhXzeKmZJDBqhN6iAGsxDDlY6fr4-b7u2tJmuLLeREdF-ykTPx0bqVLFsFsJpUIcBYVksWmO_xp-tSNLzrkAI_vlKMtYRh1auvsLx8K9HFL7S0WoSqKLvlUikEkwDAAAAAViiIv0A")
+STRING1 = getenv("STRING_SESSION", "BACXDFJKwmqc-GCXs2s6tOkIfl8X9DIOiueyR8olcWgNBOMa_XjsiiraMJVw7_KZcJ_KVU3pC1lymdVQYKmLgOdU8ThxeQtl-92_J9b7ZY4Cx7KPRQSiOS_if3ch6h7u5UjaDiMsBurQNPfBAuSxB4U2ZwQtq5rcabSCmDruFmBKbKoaK61BvlE-yTSCZZjx5la6l5p5p0c_gp6w-rz-lRaA8UKl4pblp1WTIsHHCuWD5FW76GYrMwesR95Y1W-wfG2JG2_xRlCs9bBvyfPgcP_vyUJLr7WmyFHW5z8iay8EwzQ_KYnjrXgsbsB5sioHD7Mgrt4goLDzZfT0NkakgqISAAAAAVqcPHgA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
