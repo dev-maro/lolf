@@ -11,7 +11,7 @@ from pyrogram.types import (InlineKeyboardButton,CallbackQuery,
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, ReplyKeyboardMarkup
                         
 @app.on_message(
-    command(["/command_sudo", "/command"])
+    command(["/command_sudo", "/command", "♕رجوع♕"])
     & filters.private
     & ~filters.edited
 )
@@ -34,7 +34,7 @@ async def khalid(client: Client, message: Message):
                 reply_markup=ReplyKeyboardMarkup(
                     [
                         ["سورس"],
-                        ["الاوامر","الالعاب"],          
+                        ["الاوامر","الالعاب"],        
                     ],
                     resize_keyboard=True
                 )
@@ -55,6 +55,7 @@ async def khalid(client: Client, message: Message):
                         ["اوامر 1","اوامر 2"],
                         ["اوامر 3","اوامر 4"],
                         ["اوامر 5","اوامر 6"],
+                        ["♕رجوع♕"],
                     ],
                     resize_keyboard=True
                 )
@@ -67,6 +68,7 @@ async def khalid(client: Client, message: Message):
                         ["اوامر 1","اوامر 2"],
                         ["اوامر 3","اوامر 4"],
                         ["اوامر 5"],
+                        ["♕رجوع♕"],
                     ],
                     resize_keyboard=True
                 )
