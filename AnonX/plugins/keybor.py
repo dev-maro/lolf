@@ -77,12 +77,11 @@ async def khalid(client: Client, message: Message):
                
 @app.on_message(
     command(["/command_sudo", "/command", "♕رجوع♕"])
-    & filters.private
+    & filters.group
     & ~filters.edited
 )
 @AdminRightsCheck
 async def khalid(client: Client, message: Message):
-    if message.from_user.id in SUDOERS:
        await message.reply_text(
                 "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
                 reply_markup=ReplyKeyboardMarkup(
