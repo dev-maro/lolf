@@ -75,20 +75,3 @@ async def khalid(client: Client, message: Message):
                 )
             )  
                
-@app.on_message(
-    command(["/command_sudo", "/command", "♕رجوع♕"])
-    & filters.group
-    & ~filters.edited
-)
-async def khalid(client: Client, message: Message):
-       await message.reply_text(
-                "اهلا عزيزي المطور\nاليك لوحة التحكم الخاصة بالبوت",
-                reply_markup=ReplyKeyboardMarkup(
-                    [
-                        ["سورس"],
-                        ["الاوامر","الاحصائيات"],
-                        ["المحظورين عام","مطور البوت"],
-                    ],
-                    resize_keyboard=True
-                )
-            )
