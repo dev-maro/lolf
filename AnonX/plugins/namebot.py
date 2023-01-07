@@ -22,7 +22,7 @@ async def namebot(m: Message):
 
 
     if m.text == "ضع اسم للبوت":
-        if SUDOERS(m):
+        if secsudo(m):
             await namebot(m)
         else:
             await m.reply_text("✯ انت لست المطور الاساسي\n√", reply_to_message_id=m.message_id)
