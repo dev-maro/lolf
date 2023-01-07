@@ -3,13 +3,13 @@ from pyrogram import Client, filters
 from strings import get_command
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from AninX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from AnonX import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from typing import Union
 from pyrogram.types import InlineKeyboardButton
 from random import choice
-from AninX import app
+from AnonX import app
 from config import BANNED_USERS, MUSIC_BOT_NAME
-from AninX.misc import SUDOERS
+from AnonX.misc import SUDOERS
 import re
 import sys
 from os import getenv
