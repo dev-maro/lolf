@@ -6,7 +6,7 @@ from strings.filters import command
 from config import BANNED_USERS, MONGO_DB_URI, OWNER_ID
 from strings import get_command
 from AnonX import app
-from AnonX.misc import SUDOERS, OWNER
+from AnonX.misc import SUDOERS
 from AnonX.utils.database import add_sudo, remove_sudo
 from config import OWNER_ID
 
