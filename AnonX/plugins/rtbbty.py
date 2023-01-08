@@ -8,7 +8,7 @@ from strings import get_command
 from AnonX import app
 from AnonX.misc import SUDOERS, OWNER
 from AnonX.utils.database import add_sudo, remove_sudo
-
+from config import OWNER_ID
 
 import re
 import sys
@@ -113,7 +113,7 @@ async def anamean1(client: Client, message: Message):
 async def rotba(client: Client, message: Message):
     if message.from_user.id in DEVSOURCE:
         await message.reply_text("اوامرك يا مبرمج اسلام 💕")
-    if message.from_user.id in OWNER:
+    if message.from_user.id in OWNER_ID:
         await message.reply_text("مطوري كيف حالك")        
     elif message.from_user.id in SUDOERS:
         await message.reply_text("اتفضل يا مطور الثانوي ماذا تريد")        
