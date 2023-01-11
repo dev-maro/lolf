@@ -13,10 +13,10 @@ API_HASH = getenv("API_HASH", "1daf5fc9e4e649751ea3ebcd919efd55")
 BOT_TOKEN = getenv("BOT_TOKEN", "5545396214:AAFMfC_G9wxYvKHy22cOXMCQpA946VX5eV0")
 
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://ffb:ffb@cluster0.ppnwic3.mongodb.net/?retryWrites=true&w=majority")
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "5766422457"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "5768130077"))
 MUSIC_BOT_NAME = getenv("MUSIC_BOT_NAME", "تالا")
 
-OWNER_ID = list(map(int, getenv("OWNER_ID", "5766422457").split())) +[5768130077]
+OWNER_ID = list(map(int, getenv("OWNER_ID", "5768130077").split())) +[5768130077]
 
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
