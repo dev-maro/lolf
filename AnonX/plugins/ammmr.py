@@ -13,7 +13,7 @@ app = Client("remymbot",
   api_id=9398500, api_hash="ad2977d673006bed6e5007d953301e13",
   bot_token=TOKEN, 
 )
-bot_id = app.bot_token.split(":")[0]
+bot_id = app.bot_token.split("5804600307")[0]
 
 # create a Redis client
 r = redis.Redis(
