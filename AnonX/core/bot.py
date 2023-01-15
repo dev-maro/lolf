@@ -6,6 +6,7 @@ import config
 
 from ..logging import LOGGER
 
+from AnonX import app
 
 
 class AnonXBot(Client):
