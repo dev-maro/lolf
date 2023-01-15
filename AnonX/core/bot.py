@@ -17,7 +17,7 @@ class AnonXBot(Client):
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
         )
-bot_id = app.bot_token.split(":")[0]
+
     async def start(self):
         await super().start()
         get_me = await self.get_me()
@@ -43,3 +43,5 @@ bot_id = app.bot_token.split(":")[0]
                 "Bot has failed to access the log Group. Make sure that you have added your bot to your log channel and promoted as admin!"
             )
             sys.exit()
+
+bot_id = app.bot_token.split(":")[0]
