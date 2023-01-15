@@ -21,7 +21,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 import random
 from datetime import datetime
 from config import BOT_TOKEN, bot_token, OWNER_ID, DEVSOURCE
-from main import bot_id
+from AnonX.core.bot import bot_id
 
 
 
