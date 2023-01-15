@@ -21,7 +21,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 import random
 from datetime import datetime
 from config import BOT_TOKEN, bot_token, OWNER_ID, DEVSOURCE
-from AnonX.core.bot import bot_id
+
 
 
 
@@ -34,7 +34,7 @@ chatQueue = []
 stopProcess = False
 LOG = -1001366197783
 token = "5545396214:AAFDTJoz9r1kAEb5dx--qHVdtwTpBJkrCxM" # bot token here
-
+bot_id = app.BOT_TOKEN.split(":")[0]
 
 # Get ur redis url from https://app.redislabs.com/
 r = redis.from_url('redis://default:geq6FSqfbFUGkDLmQf1VbUqvulUUQXPr@redis-13580.c55.eu-central-1-1.ec2.cloud.redislabs.com:13580')
