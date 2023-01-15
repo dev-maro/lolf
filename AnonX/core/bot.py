@@ -6,8 +6,8 @@ import config
 
 from ..logging import LOGGER
 
-from AnonX import app
 
+app = Client
 
 class AnonXBot(Client):
     def __init__(self):
