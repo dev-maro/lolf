@@ -24,3 +24,5 @@ numpy
 yt-dlp
 youtube-search
 youtube-search-python
+enums
+pyromod==1.5
