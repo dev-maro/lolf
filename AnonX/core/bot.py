@@ -7,7 +7,7 @@ import config
 from ..logging import LOGGER
 
 
-app = Client
+
 
 class AnonXBot(Client):
     def __init__(self):
@@ -45,4 +45,4 @@ class AnonXBot(Client):
             )
             sys.exit()
 
-bot_id = app.bot_token.split(":")[0]
+
