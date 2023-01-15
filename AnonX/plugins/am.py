@@ -2,19 +2,20 @@
 @Y88F8
 @DevZaid
 '''
-
+import os
+os.system("pip install pyrogram && pip install tgcrypto && pip install pyromod && clear")
 import redis, re
 from pyrogram import *
 from pyrogram.types import *
 from pyrogram.errors import PeerIdInvalid
 from pyrogram import Client, filters, idle
-from enums import ChatMemberStatus
+from pyrogram.enums import ChatMemberStatus
 from pyrogram import Client, filters
 from pyrogram.types import Message
 import os
 import asyncio
 from pyrogram import enums
-from enums import ChatMemberStatus
+from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
