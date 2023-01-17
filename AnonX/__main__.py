@@ -17,11 +17,11 @@ loop = asyncio.get_event_loop()
 
 async def init():
     if (
-        not config.STRING1
-        and not config.STRING2
-        and not config.STRING3
-        and not config.STRING4
-        and not config.STRING5
+        config.STRING1
+        and config.STRING2
+        and config.STRING3
+        and config.STRING4
+        and config.STRING5
     ):
         LOGGER("TALA").error(
             "WTF Baby ! Atleast add a pyrogram string, How Cheap..."
