@@ -17,10 +17,21 @@ loop = asyncio.get_event_loop()
 
 async def init():
     if (
+        not config.STRING1
+        and not config.STRING2
+        and not config.STRING3
+        and not config.STRING4
+        and not config.STRING5
+    ):
+        LOGGER("TALA").error(
+            "WTF Baby ! Atleast add a pyrogram string, How Cheap..."
+        )
+        return
+    if (
         not config.SPOTIFY_CLIENT_ID
         and not config.SPOTIFY_CLIENT_SECRET
     ):
-        LOGGER("AnonX").warning(
+        LOGGER("TALA").warning(
             "Sur spotify id aur secret toh daala hi nahi aapne ab toh spotify se nahi chala paaoge gaane."
         )
     try:
@@ -38,9 +49,24 @@ async def init():
     LOGGER("AnonX.plugins").info(
         "Necessary Modules Imported Successfully."
     )
+    await userbot.start()
+    await Anon.start()
+    try:
+        await Anon.stream_decall("https://telegra.ph/file/de3464aa7d6bfafdd2dc3.mp4")
+    except:
+        pass
+    try:
+        await Anon.stream_call(
+            "https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4"
+        )
+        sys.exit()
+    except:
+        pass
+    await Anon.decorators()
+    LOGGER("TALA").info("تم تنصيب بوتك بنجاح علي سورس تالا  @GG7GW")
     await idle()
 
 
 if __name__ == "__main__":
     loop.run_until_complete(init())
-    LOGGER("AnonX").info("Stopping Music Bot...")
+    LOGGER("TALA").info("Stopping Music Bot...")
