@@ -17,17 +17,6 @@ loop = asyncio.get_event_loop()
 
 async def init():
     if (
-        not config.STRING1
-        and not config.STRING2
-        and not config.STRING3
-        and not config.STRING4
-        and not config.STRING5
-    ):
-        LOGGER("AnonX").error(
-            "WTF Baby ! Atleast add a pyrogram string, How Cheap..."
-        )
-        return
-    if (
         not config.SPOTIFY_CLIENT_ID
         and not config.SPOTIFY_CLIENT_SECRET
     ):
