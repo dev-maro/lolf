@@ -6,7 +6,7 @@
 # Please see < https://github.com/TeamAnon/AnonXBot/blob/master/LICENSE >
 #
 # All rights reserved.
-#devdnd
+#dev
 
 
 import asyncio
