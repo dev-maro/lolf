@@ -50,6 +50,7 @@ async def init():
         "Necessary Modules Imported Successfully."
     )
     await userbot.start()
+    await Anon.start()
     await Anon.decorators()
     LOGGER("TALA").info("تم تنصيب بوتك بنجاح علي سورس تالا  @GG7GW")
     await idle()
