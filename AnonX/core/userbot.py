@@ -64,6 +64,7 @@ class Userbot(Client):
                 )
             else:
                 self.one.name = get_me.first_name
+                sys.exit()
         if config.STRING2:
             await self.two.start()
             try:
