@@ -35,10 +35,9 @@ from AnonX.utils.database import (add_active_chat,
                                        get_audio_bitrate, get_lang,
                                        get_loop, get_video_bitrate,
                                        group_assistant, is_autoend,
-                                       music_on, mute_off,
+                                       music_on, set_loop,
                                        remove_active_chat,
-                                       remove_active_video_chat,
-                                       set_loop)
+                                       remove_active_video_chat)
 from AnonX.utils.exceptions import AssistantErr
 from AnonX.utils.inline.play import (stream_markup,
                                           telegram_markup)
