@@ -211,10 +211,7 @@ async def kickFunc(_, message: Message):
 # Ban members
 
 
-@app.on_message(
-    filters.command(["حظر", "dban", "tban"])
-    & ~filters.private
-)
+@app.on_message(filters.regex("^حظر$") & filters.group)
 @adminsOnly("can_restrict_members")
 async def banFunc(_, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
