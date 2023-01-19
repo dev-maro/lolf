@@ -26,7 +26,7 @@ from traceback import format_exc as err
 
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
-from YukkiMusic.misc import SUDOERS
+from AnonX.misc import SUDOERS
 from AnonX.plugins.play.admin import member_permissions
 
 
