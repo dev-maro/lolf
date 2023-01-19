@@ -35,28 +35,28 @@ from AnonX.core.mongo import mongodb
 # TOO MUCH TIME AND WILL BE BAD FOR ALREADY STORED DATA
 
 
-notesdb = db.notes
-filtersdb = db.filters
-warnsdb = db.warns
-karmadb = db.karma
-chatsdb = db.chats
-usersdb = db.users
-gbansdb = db.gban
-coupledb = db.couple
-captchadb = db.captcha
-solved_captcha_db = db.solved_captcha
-captcha_cachedb = db.captcha_cache
-antiservicedb = db.antiservice
-pmpermitdb = db.pmpermit
-welcomedb = db.welcome_text
-blacklist_filtersdb = db.blacklistFilters
-pipesdb = db.pipes
-sudoersdb = db.sudoers
-blacklist_chatdb = db.blacklistChat
-restart_stagedb = db.restart_stage
-flood_toggle_db = db.flood_toggle
-rssdb = db.rss
-chatbotdb = db.chatbot
+notesdb = mongodb.notes
+filtersdb = mongodb.filters
+warnsdb = mongodb.warns
+karmadb = mongodb.karma
+chatsdb = mongodb.chats
+usersdb = mongodb.users
+gbansdb = mongodb.gban
+coupledb = mongodb.couple
+captchadb = mongodb.captcha
+solved_captcha_db = mongodb.solved_captcha
+captcha_cachedb = mongodb.captcha_cache
+antiservicedb = mongodb.antiservice
+pmpermitdb = mongodb.pmpermit
+welcomedb = mongodb.welcome_text
+blacklist_filtersdb = mongodb.blacklistFilters
+pipesdb = mongodb.pipes
+sudoersdb = mongodb.sudoers
+blacklist_chatdb = mongodb.blacklistChat
+restart_stagedb = mongodb.restart_stage
+flood_toggle_db = mongodb.flood_toggle
+rssdb = mongodb.rss
+chatbotdb = mongodb.chatbot
 
 
 def obj_to_str(obj):
