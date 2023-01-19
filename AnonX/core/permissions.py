@@ -26,8 +26,8 @@ from traceback import format_exc as err
 
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
-from config import SUDOERS
-from StringGenBot.admin import member_permissions
+from YukkiMusic.misc import SUDOERS
+from AnonX.plugins.play.admin import member_permissions
 
 
 async def authorised(func, subFunc2, client, message, *args, **kwargs):
