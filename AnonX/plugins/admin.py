@@ -29,7 +29,8 @@ import re
 import sys
 from os import getenv
 import sys
-from config import BOT_ID, SUDOERS
+from config import BOT_ID
+from AnonX.misc import SUDOERS
 from os import getenv
 from pyrogram import filters
 from pyrogram.types import (
@@ -39,23 +40,22 @@ from pyrogram.types import (
     Message,
 )
 
-
-from StringGenBot.errors import capture_err
-from StringGenBot.keyboard import ikb
-from StringGenBot.dbfunctions import (
+from AnonX import app
+from AnonX.core.errors import capture_err
+from AnonX.core.keyboard import ikb
+from AnonX.utils.dbfunctions import (
     add_warn,
     get_warn,
     int_to_alpha,
     remove_warns,
     save_filter,
 )
-from StringGenBot.functions import (
+from AnonX.utils.functions import (
     extract_user,
     extract_user_and_reason,
     time_converter,
 )
 
-app = Client
 
 async def member_permissions(chat_id: int, user_id: int):
     perms = []
@@ -84,7 +84,7 @@ async def member_permissions(chat_id: int, user_id: int):
     return perms
 
 
-from StringGenBot.permissions import adminsOnly
+from AnonX.core.permissions import adminsOnly
 admins_in_chat = {}
 
 
