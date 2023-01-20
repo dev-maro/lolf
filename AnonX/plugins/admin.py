@@ -593,7 +593,7 @@ async def remove_warning(_, cq: CallbackQuery):
 
 
 @app.on_message(
-    command("حذف التحذير", "حذف الاندارات") & ~filters.private
+    command(["حذف التحذير", "حذف الاندارات"]) & ~filters.private
 )
 @adminsOnly("can_restrict_members")
 async def remove_warnings(_, message: Message):
@@ -617,7 +617,7 @@ async def remove_warnings(_, message: Message):
 # Warns
 
 
-@app.on_message(command("التحذيرات", "الانذارات") & ~filters.private)
+@app.on_message(command(["التحذيرات", "الانذارات"]) & ~filters.private)
 @capture_err
 async def check_warns(_, message: Message):
     user_id = await extract_user(message)
