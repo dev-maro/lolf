@@ -142,7 +142,7 @@ async def game_5(client, message: Message):
       t,
       f,
       d,
-      reply_to_message_id=message.from_user.id,
+      reply_to_message_id=message.id,
       reply_markup=InlineKeyboardMarkup(
       [
       [
