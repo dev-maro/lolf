@@ -134,7 +134,7 @@ async def game_4(client, message):
     f"كفو {ASK.from_user.mention} اجابتك صحيحة"
    )
 @app.on_message(filters.regex("^اقتباس$") & filters.group)
-async def game_5(client, message):
+async def game_5(client, message: Message):
    f = "quotes555v"
    t = message.chat.id
    d = randint(2,190)
