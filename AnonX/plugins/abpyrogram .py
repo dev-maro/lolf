@@ -38,7 +38,7 @@ Keyboard = ReplyKeyboardMarkup(
   resize_keyboard=True
 )
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("tala") & filters.private)
 async def for_users (app,m):
    if not check(m.from_user.id):
      await check_sub(app, m)
@@ -65,7 +65,7 @@ async def for_users (app,m):
         
      
    
-@app.on_message(filters.command("start") & filters.private, group=1)
+@app.on_message(filters.command("tala") & filters.private, group=1)
 async def keyboard_show(app,m):
     if check(m.from_user.id):
        await m.reply(f"• أهلا بك {m.from_user.mention} .\n• اليك لوحة التحكم الخاصة", reply_markup=Keyboard, quote=True)
@@ -229,7 +229,7 @@ async def keyboard_for_admins(app, m):
         r.delete(f"{m.from_user.id}addchannel{m.chat.id}{bot_id}")
       
       if m.text == 'اخفاء الكيبورد':
-        await m.reply("• تم اخفاء لوحة التحكم لاظهارها مجدداً ارسل /start",
+        await m.reply("• تم اخفاء لوحة التحكم لاظهارها مجدداً ارسل /tala",
         quote=True, reply_markup=ReplyKeyboardRemove (selective=True))
 
 
