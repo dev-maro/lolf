@@ -29,10 +29,10 @@ Keyboard = ReplyKeyboardMarkup(
     [("تفعيل الاشتراك"), ("تعطيل الاشتراك")],
     [("ضع قناة الاشتراك"),("حذف قناة الاشتراك")],
     [("قناة الاشتراك")],
-    [("رفع ادمن"),("تنزيل ادمن")],
+    [("رفع مطور اساسي"),("تنزيل مطور اساسي")],
     [("قائمه الأدمنيه")],
     [("المستخدمين"),("الأدمنية"),("الجروبات")],
-    [("نقل ملكية البوت")],
+    [("تعيين مالك بوت")],
     [("الغاء")]
   ],
   resize_keyboard=True
@@ -74,13 +74,13 @@ admins_commands = [
    'الاحصائيات', 'تفعيل التواصل',
    'تعطيل التواصل', 'اذاعة بالتثبيت', 'اذاعة',
    'اذاعة بالتوجيه', 'تفعيل الاشتراك', 'تعطيل الاشتراك',
-   'ضع قناة الاشتراك', 'حذف قناة الاشتراك', 'قناة الاشتراك','قائمه الأدمنيه',
-   'المستخدمين', 'الأدمنية', 'الجروبات',
+   'ضع قناة الاشتراك', 'حذف قناة الاشتراك', 'قناة الاشتراك','الاساسيين',
+   'المستخدمين', 'الاساسيين', 'الجروبات',
    'اذاعة بالمجموعات','اذاعة بالتثبيت بالمجموعات', 'اخفاء الكيبورد'
    ]
    
 owner_commands = [
-   'نقل ملكية البوت', 'رفع ادمن', 'تنزيل ادمن'
+   'تعيين مالك البوت', 'رفع مطور اساسي', 'تنزيل مطور اساسي'
 ]
 
 @app.on_message(filters.text & filters.private, group=2)
@@ -112,7 +112,7 @@ async def keyboard_for_admins(app, m):
       if m.text == 'المستخدمين':
         await m.reply_document(get_users_backup(), quote=True)
       
-      if m.text == 'الأدمنية':
+      if m.text == 'الاساسيين':
         await m.reply_document(get_admins_backup(), quote=True)
       
       if m.text == 'الجروبات':
@@ -131,7 +131,7 @@ async def keyboard_for_admins(app, m):
         r.delete(f"enable_force_subscribe{bot_id}")
       
       if m.text == 'ضع قناة الاشتراك':
-        await m.reply("• ارسل معرف القناة العام مثال @Y88F8", quote=True)
+        await m.reply("• ارسل معرف القناة العام مثال @GG7GW", quote=True)
         r.set(f"{m.from_user.id}addchannel{m.chat.id}{bot_id}",1)
         r.delete(f"{m.from_user.id}addadmin{m.chat.id}{bot_id}")
         r.delete(f"{m.from_user.id}transfer{m.chat.id}{bot_id}")
@@ -240,7 +240,7 @@ async def for_owner(app,m):
    if not m.from_user.id == int(r.get(f"bot_owner{bot_id}")):
       return await m.reply("• هذا الأمر يخص المطور الأساسي فقط", quote=True)
    
-   if text == 'نقل ملكية البوت':
+   if text == 'تعيين مالك بوت':
      await m.reply("• ارسل ايدي المالك الجديد الآن", quote=True)
      r.set(f"{m.from_user.id}transfer{m.chat.id}{bot_id}",1)
      r.delete(f"{m.from_user.id}addadmin{m.chat.id}{bot_id}")
@@ -251,7 +251,7 @@ async def for_owner(app,m):
      r.delete(f"{m.from_user.id}gbroad{m.chat.id}{bot_id}")
      r.delete(f"{m.from_user.id}gbroadpin{m.chat.id}{bot_id}")
      r.delete(f"{m.from_user.id}addchannel{m.chat.id}{bot_id}")
-   if text == 'رفع ادمن':
+   if text == 'رفع مطور اساسي':
      await m.reply("• ارسل ايدي الآدمن الآن", quote=True)
      r.set(f"{m.from_user.id}addadmin{m.chat.id}{bot_id}",1)
      r.delete(f"{m.from_user.id}transfer{m.chat.id}{bot_id}")
@@ -263,7 +263,7 @@ async def for_owner(app,m):
      r.delete(f"{m.from_user.id}gbroadpin{m.chat.id}{bot_id}")
      r.delete(f"{m.from_user.id}addchannel{m.chat.id}{bot_id}")
    
-   if text == 'تنزيل ادمن':
+   if text == 'تنزيل مطور اساسي':
      await m.reply("• ارسل ايدي الآدمن الآن", quote=True)
      r.set(f"{m.from_user.id}deladmin{m.chat.id}{bot_id}", 1)
      r.delete(f"{m.from_user.id}addadmin{m.chat.id}{bot_id}")
@@ -532,19 +532,19 @@ async def for_admins_in_group(app,m):
    if m.from_user.id == int(r.get(f"bot_owner{bot_id}")):
      text = m.text
      user_id = m.reply_to_message.from_user.id
-     if text == 'رفع ادمن':
+     if text == 'رفع مطور اساسي':
        if is_admin(user_id):
-          return await m.reply("• المستخدم آدمن من قبل")
+          return await m.reply("• الشخص بالفعل مطور اساسي !)
        else:
           add_admin(user_id)
-          await m.reply("• تم رفعه ادمن بنجاح")
+          await m.reply("• تم رفع الشخص مطور اساسي")
      
-     if text == 'تنزيل ادمن':
+     if text == 'تنزيل مطور اساسي':
       if not is_admin(user_id):
-          return await m.reply("• المستخدم مو آدمن من قبل")
+          return await m.reply("• مين قالك ان هو مطور اساسي 🥹")
       else:
           del_admin(user_id)
-          await m.reply("• تم تنزيله ادمن بنجاح")
+          await m.reply("• نزلته من المطورين الاساسي لانو قلليل الادب 🥹")
 
 def add_user(user_id: int):
 	if is_user(user_id):
