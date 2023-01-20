@@ -1,5 +1,5 @@
 import os
-os.system("pip install pyrogram && pip install tgcrypto && pip install pyromod && clear")
+os.system("pip install pyrogram && pip install tgcrypto && pip install pyromod && pip install enums && clear")
 
 from pyrogram import Client, filters, idle
 from pyromod import listen
