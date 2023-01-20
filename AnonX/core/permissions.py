@@ -27,7 +27,7 @@ from traceback import format_exc as err
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 from pyrogram.types import Message
 from AnonX.misc import SUDOERS
-from AnonX.plugins.play.admin import member_permissions
+from AnonX.plugins.admin import member_permissions
 
 
 async def authorised(func, subFunc2, client, message, *args, **kwargs):
