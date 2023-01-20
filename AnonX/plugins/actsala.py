@@ -1,4 +1,3 @@
-from pyromod import listen
 from AnonX import app
 from random import choice, randint 
 from pyrogram import Client, filters 
