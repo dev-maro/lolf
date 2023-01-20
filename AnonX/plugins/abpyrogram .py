@@ -534,7 +534,7 @@ async def for_admins_in_group(app,m):
      user_id = m.reply_to_message.from_user.id
      if text == 'رفع مطور اساسي':
        if is_admin(user_id):
-          return await m.reply("• الشخص بالفعل مطور اساسي !)
+          return await m.reply("• الشخص بالفعل مطور اساسي !")
        else:
           add_admin(user_id)
           await m.reply("• تم رفع الشخص مطور اساسي")
