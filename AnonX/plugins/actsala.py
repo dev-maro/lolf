@@ -146,7 +146,7 @@ async def game_5(client, message: Message):
       reply_markup=InlineKeyboardMarkup(
       [
       [
-      InlineKeyboardButton("Dev", user_id=5117901887)
+      InlineKeyboardButton("TALA 🧚‍♀️", url="https://t.me/GG7GW")
       ]
       ]
       )
