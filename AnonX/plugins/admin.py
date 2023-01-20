@@ -28,6 +28,7 @@ from pyrogram import Client
 import re
 import sys
 from os import getenv
+from strings.filters import command
 import sys
 from config import BOT_ID
 from AnonX.misc import SUDOERS
@@ -178,7 +179,7 @@ async def purgeFunc(_, message: Message):
 
 
 @app.on_message(
-    filters.command(["طرد", "dkick"]) & ~filters.private
+    command(["طرد", "dkick"]) & ~filters.private
 )
 @adminsOnly("can_restrict_members")
 async def kickFunc(_, message: Message):
@@ -211,7 +212,7 @@ async def kickFunc(_, message: Message):
 # Ban members
 
 
-@app.on_message(filters.regex("^حظر$") & filters.group)
+@app.on_message(command(["حظر"]) & filters.group)
 @adminsOnly("can_restrict_members")
 async def banFunc(_, message: Message):
     user_id, reason = await extract_user_and_reason(message, sender_chat=True)
@@ -313,7 +314,7 @@ async def deleteFunc(_, message: Message):
 
 
 @app.on_message(
-    filters.command(["promote", "fullpromote"])
+    command(["رفع مشرف", "fullpromote"])
    
     & ~filters.private
 )
@@ -359,7 +360,7 @@ async def promoteFunc(_, message: Message):
 # Demote Member
 
 
-@app.on_message(filters.command("demote") & ~filters.private)
+@app.on_message(command("تنزيل مشرف") & ~filters.private)
 @adminsOnly("can_promote_members")
 async def demote(_, message: Message):
     user_id = await extract_user(message)
@@ -390,7 +391,7 @@ async def demote(_, message: Message):
 
 
 @app.on_message(
-    filters.command(["pin", "unpin"]) & ~filters.private
+    command(["تثبيت", "unpin"]) & ~filters.private
 )
 @adminsOnly("can_pin_messages")
 async def pin(_, message: Message):
@@ -417,7 +418,7 @@ async def pin(_, message: Message):
 
 
 @app.on_message(
-    filters.command(["كتم", "tmute", "mute"]) & ~filters.private
+    command(["كتم", "tmute", "mute"]) & ~filters.private
 )
 @adminsOnly("can_restrict_members")
 async def mute(_, message: Message):
@@ -472,7 +473,7 @@ async def mute(_, message: Message):
 
     
 
-@app.on_message(filters.command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"]) & ~filters.private)
+@app.on_message(command(["الغاء كتم", "unmute", "unmute_", "الغاء الكتم"]) & ~filters.private)
 @adminsOnly("can_restrict_members")
 async def unmute(_, message: Message):
     user_id = await extract_user(message)
@@ -486,7 +487,7 @@ async def unmute(_, message: Message):
 
 
 @app.on_message(
-    filters.command("ban_ghosts")
+    command("حظر خفي")
     & ~filters.private
    
 )
@@ -513,7 +514,7 @@ async def ban_deleted_accounts(_, message: Message):
 
 
 @app.on_message(
-    filters.command(["warn", "dwarn", "تحذير"]) & ~filters.private
+    command(["warn", "dwarn", "تحذير", "انذار"]) & ~filters.private
 )
 @adminsOnly("can_restrict_members")
 async def warn_user(_, message: Message):
@@ -592,7 +593,7 @@ async def remove_warning(_, cq: CallbackQuery):
 
 
 @app.on_message(
-    filters.command("حذف التحذير") & ~filters.private
+    command("حذف التحذير", "حذف الاندارات") & ~filters.private
 )
 @adminsOnly("can_restrict_members")
 async def remove_warnings(_, message: Message):
@@ -616,7 +617,7 @@ async def remove_warnings(_, message: Message):
 # Warns
 
 
-@app.on_message(filters.command("التحذيرات") & ~filters.private)
+@app.on_message(command("التحذيرات", "الانذارات") & ~filters.private)
 @capture_err
 async def check_warns(_, message: Message):
     user_id = await extract_user(message)
@@ -636,7 +637,7 @@ async def check_warns(_, message: Message):
 
 @app.on_message(
     (
-            filters.command("ابلاغ")
+            command("ابلاغ")
             | filters.command(["admins", "admin"], prefixes="@")
     )
    
