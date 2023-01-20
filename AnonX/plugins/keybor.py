@@ -41,6 +41,9 @@ async def khalid(client: Client, message: Message):
                 )
             )     
 
+      if message.text == 'اخفاء الكيبورد':
+        await message.reply("• تم اخفاء لوحة التحكم لاظهارها مجدداً ارسل /tala",
+        quote=True, reply_markup=ReplyKeyboardRemove (selective=True))
 
 @app.on_message(
     command(["الاوامر"])
