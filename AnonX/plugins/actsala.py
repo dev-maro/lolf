@@ -12,7 +12,6 @@ from pyrogram.types import (
 
 EMOJIS = list("😭🤣😂😅😆😁😄😃😀🥳🤩🤩😍🥰😘😚😙😗😉🤪😜😝😛😋🥲🙂🙃😶😐😑🫣🤭")
 @app.on_message(filters.regex("^الاسرع$") & filters.group)
-@app.on_edited_message(filters.regex("^الاسرع$") & filters.group)
 async def game_1(client, message):
    emoji = choice(EMOJIS)
    re = f"^{emoji}$"
@@ -47,7 +46,6 @@ AUT = [
 ]
 
 @app.on_message(filters.regex("^مشاهير$") & filters.group)
-@app.on_edited_message(filters.regex("^مشاهير$") & filters.group)
 async def game_2(client, message):
    photoo = choice(AUT)
    photo = photoo.split("ZAID")[0]
@@ -85,7 +83,6 @@ EMO = [
   "💻:لاب"
 ]
 @app.on_message(filters.regex("^معاني$") & filters.group)
-@app.on_edited_message(filters.regex("^معاني$") & filters.group)
 async def game_3(client, message):
    A = choice(EMO)
    emo = A.split(":")[0]
@@ -120,7 +117,6 @@ FLAGS = [
   "🇯🇵:اليابان"
 ]
 @app.on_message(filters.regex("^اعلام دول$") & filters.group)
-@app.on_edited_message(filters.regex("^اعلام دول$") & filters.group)
 async def game_4(client, message):
    A = choice(FLAGS)
    emo = A.split(":")[0]
@@ -138,7 +134,6 @@ async def game_4(client, message):
     f"كفو {ASK.from_user.mention} اجابتك صحيحة"
    )
 @app.on_message(filters.regex("^اقتباس$") & filters.group)
-@app.on_edited_message(filters.regex("^اقتباس$") & filters.group)
 async def game_5(client, message):
    f = "quotes555v"
    t = message.chat.id
@@ -158,7 +153,6 @@ async def game_5(client, message):
    )
    
 @app.on_message(filters.regex("^كت$") & filters.group)
-@app.on_edited_message(filters.regex("^كت$") & filters.group)
 async def game_6(client, message):
    f = "rancutt"
    t = message.chat.id
@@ -177,7 +171,6 @@ async def game_6(client, message):
    )
    
 @app.on_message(filters.regex("^افتار انمي$") & filters.group)
-@app.on_edited_message(filters.regex("^افتار انمي$") & filters.group)
 async def anime(c,m):
     rl = randint(3,201)
     url = f"https://t.me/foravaanime/{rl}"
@@ -185,7 +178,6 @@ async def anime(c,m):
     await m.reply_photo(url, caption=f"༄ {user}\n༄ تم اختيار افتار لك")     
     
 @app.on_message(filters.regex("^افتار عيال$") & filters.group)
-@app.on_edited_message(filters.regex("^افتار عيال$") & filters.group)
 async def boys(c,m):
     rl = randint(3,446)
     url = f"https://t.me/foravaboys/{rl}"
