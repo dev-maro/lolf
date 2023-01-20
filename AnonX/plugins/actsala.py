@@ -204,5 +204,3 @@ async def next_cut(_, query: CallbackQuery):
         )
       )
    
-
-app.run()
