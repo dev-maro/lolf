@@ -8,7 +8,6 @@ from ..logging import LOGGER
 
 
 
-
 class AnonXBot(Client):
     def __init__(self):
         LOGGER(__name__).info(f"Starting Bot...")
@@ -44,5 +43,3 @@ class AnonXBot(Client):
                 "Bot has failed to access the log Group. Make sure that you have added your bot to your log channel and promoted as admin!"
             )
             sys.exit()
-
-
