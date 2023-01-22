@@ -46,8 +46,9 @@ def get_file_id(msg: Message):
 
               
 @app.on_message(
-    command(["الاحصائيات"])
-    filters.user(OWNER_ID)
+    command(["الاحصائيات", "احصائيات"])
+    & filters.user(OWNER_ID)
+    & ~filters.edited
 )
 async def selff(client: Client, message: Message):
     usr = await client.get_users(BOT_ID)
