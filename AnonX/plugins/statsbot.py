@@ -46,7 +46,7 @@ def get_file_id(msg: Message):
 
               
 @app.on_message(
-    command(["الاحصائيات", "احصائيات"])
+    filters.command(["الاحصائيات", "احصائيات"])
     & filters.user(OWNER_ID)
     & ~filters.edited
 )
