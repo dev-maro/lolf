@@ -24,6 +24,7 @@ async def khalid(client: Client, message: Message):
                     [
                         ["سورس"],
                         ["الاوامر","الاحصائيات"],
+                        ["حذف حساب مساعد","اضف حساب مساعد"],
                         ["المحظورين عام","مطور البوت"],
                     ],
                     resize_keyboard=True
