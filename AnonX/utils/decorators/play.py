@@ -25,11 +25,6 @@ def PlayWrapper(command):
                     "**ᴩʀɪᴠᴀᴛᴇ ᴍᴜsɪᴄ ʙᴏᴛ**\n\nᴏɴʟʏ ғᴏʀ ᴛʜᴇ ᴄʜᴀᴛs ᴀᴜᴛʜᴏʀɪsᴇᴅ ʙʏ ᴛʜᴇ ᴏᴡɴᴇʀ. ʀᴇǫᴜᴇsᴛ ɪɴ ᴍʏ ᴏᴡɴᴇʀ's ᴩᴍ ᴛᴏ ᴀᴜᴛʜᴏʀɪsᴇ ʏᴏᴜʀ ᴄʜᴀᴛ ғᴏʀ ᴜsɪɴɢ ᴍᴇ."
                 )
                 return await app.leave_chat(message.chat.id)
-        if await is_commanddelete_on(message.chat.id):
-            try:
-                await message.delete()
-            except:
-                pass
         language = await get_lang(message.chat.id)
         _ = get_string(language)
         audio_telegram = (
