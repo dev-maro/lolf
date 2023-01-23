@@ -7,7 +7,6 @@ from AnonX.misc import SUDOERS
 from AnonX.utils.database import (get_cmode, get_lang,
                                        get_playmode, get_playtype,
                                        is_active_chat,
-                                       is_commanddelete_on,
                                        is_served_private_chat)
 from AnonX.utils.database.memorydatabase import is_maintenance
 from AnonX.utils.inline.playlist import botplaylist_markup
