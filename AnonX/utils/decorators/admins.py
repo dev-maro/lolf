@@ -5,8 +5,7 @@ from strings import get_string
 from AnonX import app
 from AnonX.misc import SUDOERS
 from AnonX.utils.database import (get_authuser_names, get_cmode,
-                                       get_lang, is_active_chat,
-                                       is_commanddelete_on,
+                                       get_lang, is_active_chat,                                     
                                        is_maintenance,
                                        is_nonadmin_chat)
 
