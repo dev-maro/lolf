@@ -5,7 +5,8 @@ from strings import get_string
 from AnonX import app
 from AnonX.misc import SUDOERS
 from AnonX.utils.database import (get_authuser_names, get_cmode,
-                                       get_lang, is_active_chat,                                     
+                                       get_lang, is_active_chat,
+                                       is_commanddelete_on,
                                        is_maintenance,
                                        is_nonadmin_chat)
 
@@ -19,6 +20,12 @@ def AdminRightsCheck(mystic):
                 return await message.reply_text(
                     "» ʙᴏᴛ ɪs ᴜɴᴅᴇʀ ᴍᴀɪɴᴛᴇɴᴀɴᴄᴇ ғᴏʀ sᴏᴍᴇ ᴛɪᴍᴇ, ᴩʟᴇᴀsᴇ ᴠɪsɪᴛ sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ ᴛᴏ ᴋɴᴏᴡ ᴛʜᴇ ʀᴇᴀsᴏɴ."
                 )
+        if await is_commanddelete_on(message.chat.id):
+            try:
+                await message.delete()
+            except:
+                pass
+        try:
             language = await get_lang(message.chat.id)
             _ = get_string(language)
         except:
